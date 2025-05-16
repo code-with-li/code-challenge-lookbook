@@ -1,0 +1,94 @@
+.lookbook-container {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    overflow: visible
+  }
+  
+  .lookbook-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .hotspot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #e60023;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    user-select: none;
+  }
+  
+  .tooltip {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    width: 180px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 999;
+    transform: translateY(-50%);
+    text-align: left;
+  }
+  .tooltip p {
+      color: #000;
+      margin: 0;
+  }
+  
+  .tooltip img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+  }
+  
+  .hotspot:hover .tooltip,
+  .tooltip:hover {
+    display: block !important;
+  }
+  
+  @media only screen and (max-width: 767px){
+    .hotspot{
+      display: none !important
+    }
+  }
+  @media screen and (min-width: 768px){
+    .product-list-overlay{
+      display:none !important;
+    }
+  }
+  .product-list-overlay {
+    /* position: absolute; */
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px;
+    max-width: 220px;
+    z-index: 20;
+    font-size: 14px;
+  }
+  .product-list-item{
+      text-align: left;
+  }
+  
+  .product-list-item .price {
+      font-size: 12px;
+      font-weight: bold;
+  }
