@@ -1,3 +1,8 @@
+{% assign lookbook_handle = section.settings.lookbook %}
+{% assign lb = metaobjects.lookbook[section.settings.lookbook] %}
+<section class="lookbook">
+  {% render 'lookbook-display', lb: lb %}
+</section>
 {% schema %}
 {
   "name": "Lookbook Section",
