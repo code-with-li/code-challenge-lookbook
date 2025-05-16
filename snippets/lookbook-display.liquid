@@ -4,11 +4,22 @@
 {% if lb != blank and lb.product.value != blank %}
 
   <div class="lookbook-container">
-    <h2>{{ lb.title.value }}</h2>
-    <p>{{ lb.description.value }}</p>
+    {% if lb.title.value != blank %}
+      <h2>{{ lb.title.value }}</h2>
+    {% endif %}
+    {% if lb.description.value != blank %}
+      <p>{{ lb.description.value }}</p>
+    {% endif %}
     <div class="image-wrapper" style="position:relative;">
-      <img src="{{ lb.image.value | img_url: 'master' }}" alt="{{ lb.title.value }}" style="width:100%;">
-
+      {{
+        lb.image.value
+        | image_url: width: 1946
+        | image_tag:
+          class: 'lookbook-image',
+          loading: 'lazy',
+          sizes: '(max-width: 990px) 100vw, 990px',
+          widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
+      }}
       {% for item in lb.product.value %}
         {% assign product_ref = item.product.value %}
         {% assign x_pos = item.x_position.value %}
@@ -16,18 +27,24 @@
         {% assign product = all_products[product_ref.handle] %}
 
         {% if product %}
-          <div class="hotspot" style="top:{{ y_pos }}%; left:{{ x_pos }}%;">
-            +
-            <div class="tooltip" style="display:none; position:absolute; left:110%; top:50%; transform:translateY(-70%); background:#fff; padding:10px; border:1px solid #ccc;">
-              <img 
-                src="{{ product.featured_image | img_url: '300x' }}" 
-                alt="{{ product.title }}" style="width: 100%; height: auto;">
-              <h3 class="card__heading h5"><a href="{{ product.url }}" class="full-unstyled-link">{{ product.title }}</a></h3>
-              <div class="card-information">
-                {% render 'price', product: product, price_class: '', show_compare_at_price: true %}
+            <div class="hotspot" style="top:{{ y_pos }}%; left:{{ x_pos }}%;">
+              +
+              <div class="tooltip" style="display:none; position:absolute; left:100%; top:50%; transform:translateY(-70%); background:#fff; padding:10px; border:1px solid #ccc;">
+                {{
+                  product.featured_image
+                  | image_url: width: 600
+                  | image_tag:
+                    class: 'hotspot-product-image',
+                    loading: 'lazy',
+                    sizes: '(max-width: 600px) 300px, 600px',
+                    widths: '300, 600'
+                }}
+                <h3 class="card__heading h5"><a href="{{ product.url }}" class="full-unstyled-link">{{ product.title }}</a></h3>
+                <div class="card-information">
+                  {% render 'price', product: product, price_class: '', show_compare_at_price: true %}
+                </div>
               </div>
             </div>
-          </div>
         {% endif %}
       {% endfor %}
   

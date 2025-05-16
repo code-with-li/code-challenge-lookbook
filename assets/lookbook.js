@@ -19,3 +19,4 @@ document.querySelectorAll('.hotspot').forEach(hotspot => {
       tooltip.style.display = 'none';
     });
   });
+  
