@@ -1,0 +1,22 @@
+{% assign lb = metaobjects.lookbook[section.settings.lookbook] %}
+<section class="lookbook">
+  {% render 'lookbook-display', lb: lb %}
+</section>
+{% schema %}
+{
+  "name": "Lookbook Section",
+  "settings": [
+    {
+      "type": "metaobject",
+      "id": "lookbook",
+      "label": "Select Lookbook",
+      "metaobject_type": "lookbook"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lookbook"
+    }
+  ]
+}
+{% endschema %}
