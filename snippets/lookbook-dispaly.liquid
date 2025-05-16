@@ -1,0 +1,56 @@
+{{ 'lookbook.css' | asset_url | stylesheet_tag }}
+{{ 'lookbook.js' | asset_url | script_tag }}
+
+{% if lb != blank and lb.product.value != blank %}
+
+  <div class="lookbook-container">
+    <h2>{{ lb.title.value }}</h2>
+    <p>{{ lb.description.value }}</p>
+    <div class="image-wrapper" style="position:relative;">
+      <img src="{{ lb.image.value | img_url: 'master' }}" alt="{{ lb.title.value }}" style="width:100%;">
+
+      {% for item in lb.product.value %}
+        {% assign product_ref = item.product.value %}
+        {% assign x_pos = item.x_position.value %}
+        {% assign y_pos = item.y_position.value %}
+        {% assign product = all_products[product_ref.handle] %}
+
+        {% if product %}
+          <div class="hotspot" style="top:{{ y_pos }}%; left:{{ x_pos }}%;">
+            +
+            <div class="tooltip" style="display:none; position:absolute; left:110%; top:50%; transform:translateY(-70%); background:#fff; padding:10px; border:1px solid #ccc;">
+              <img 
+                src="{{ product.featured_image | img_url: '300x' }}" 
+                alt="{{ product.title }}" style="width: 100%; height: auto;">
+              <h3 class="card__heading h5"><a href="{{ product.url }}" class="full-unstyled-link">{{ product.title }}</a></h3>
+              <div class="card-information">
+                {% render 'price', product: product, price_class: '', show_compare_at_price: true %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+  
+    <div class="product-list-overlay">
+      {% for item in lb.product.value %}
+        {% assign product = all_products[item.product.value.handle] %}
+        {% if product %}
+          <a href="{{ product.url }}" class="full-unstyled-link">
+            <div class="product-list-item">
+              <h3 class="card__heading h5">{{ product.title }}</h3>
+              <div class="card-information">
+                {% render 'price', product: product, price_class: '', show_compare_at_price: true %}
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    </div>
+    </div>
+
+  
+
+{% else %}
+  <p>No products found in this lookbook.</p>
+{% endif %}
