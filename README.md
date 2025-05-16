@@ -1,4 +1,4 @@
-# Shopify Lookbook Theme
+# Dawn Theme with Lookbook Feature
 
 This repository contains a Shopify theme with a focus on showcasing a "Lookbook" feature. The theme includes custom sections, templates, and configurations to enhance the shopping experience.
 
