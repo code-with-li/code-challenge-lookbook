@@ -723,6 +723,18 @@
     </script>
   </div>
 </product-info>
+{% assign lookbook_handles = "lookbook-1,lookbook-2,lookbook-3" | split: "," %}
+{% for handle in lookbook_handles %}
+  {% assign lookbook = metaobjects.lookbook[handle] %}
+  
+  {% for item in lookbook.product.value %}
+    {% if item.product.value.handle == product.handle %}
+      {% assign lb = metaobjects.lookbook[handle] %}
+      {% render 'lookbook-display', lb: lb %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
 
 {% schema %}
 {
