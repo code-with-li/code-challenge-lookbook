@@ -45,6 +45,10 @@
             "show_gift_card_recipient": true
           }
         },
+        "appstle_bundles_appstle_volume_discount_bundle_XpFiH7": {
+          "type": "shopify://apps/appstle-bundles/blocks/appstle-volume-discount-bundle/8909921b-2d24-4d68-9b12-9d045d3dcb0a",
+          "settings": {}
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -63,6 +67,7 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "appstle_bundles_appstle_volume_discount_bundle_XpFiH7",
         "description",
         "share"
       ],
@@ -99,10 +104,26 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "17676715563dadaa91": {
+      "type": "apps",
+      "blocks": {
+        "appstle_bundles_appstle_volume_discount_bundle_r4jFNt": {
+          "type": "shopify://apps/appstle-bundles/blocks/appstle-volume-discount-bundle/8909921b-2d24-4d68-9b12-9d045d3dcb0a",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "appstle_bundles_appstle_volume_discount_bundle_r4jFNt"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "17676715563dadaa91"
   ]
 }
