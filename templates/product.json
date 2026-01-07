@@ -42,6 +42,10 @@
           "type": "shopify://apps/appstle-bundles/blocks/appstle-buy-x-get-y-bundle/8909921b-2d24-4d68-9b12-9d045d3dcb0a",
           "settings": {}
         },
+        "appstle_bundles_appstle_classic_bundle_3BCxJC": {
+          "type": "shopify://apps/appstle-bundles/blocks/appstle-classic-bundle/8909921b-2d24-4d68-9b12-9d045d3dcb0a",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -67,6 +71,7 @@
         "variant_picker",
         "quantity_selector",
         "appstle_bundles_appstle_buy_x_get_y_bundle_JQr7NT",
+        "appstle_bundles_appstle_classic_bundle_3BCxJC",
         "buy_buttons",
         "description",
         "share"
